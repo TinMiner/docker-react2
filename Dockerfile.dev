@@ -1,0 +1,13 @@
+# Use an existing docker image as a base
+FROM node:10.23.1-alpine
+
+# If folder does not exist will be created within the container
+WORKDIR /app
+
+# Download and install a dependencies
+COPY ./package.json .
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "start"]
